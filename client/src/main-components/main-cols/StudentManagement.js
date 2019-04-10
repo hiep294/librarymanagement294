@@ -5,6 +5,7 @@ import Auth from './../../modules/Auth'
 import Pagination from '../Pagination'
 import axios from 'axios'
 // import axios from 'axios'
+import {Spring} from 'react-spring/renderprops'
 
 export default class StudentManagement extends Component {
 
@@ -245,34 +246,42 @@ export default class StudentManagement extends Component {
   // print a form to get info of new book
   AddStudentComponent = () => {
     return (
-      <div id="add-book" className="book"> 
-        <form onSubmit={this.createStudentRequest}>
-          <div className="book-info">
-            <div className="book-info-main">
-              <center><h2 id="title" className="title">Add Student</h2></center>
-              <span>Name:</span>
-              <span className="info"><input id="book-title" className="text" type="text" value={this.state.name} onChange={this.onEditChange} name="name"/></span>
-              <span> Email:&nbsp;</span>
-              <span className="info"><input id="book-authors" className="text" type="text" value={this.state.email} onChange={this.onEditChange} name="email"/></span>  
+      <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
+      >
+      {props => (
+        <div id="add-book" className="book" style={props}> 
+          <form onSubmit={this.createStudentRequest}>
+            <div className="book-info">
+              <div className="book-info-main">
+                <center><h2 id="title" className="title">Add Student</h2></center>
+                <span>Name:</span>
+                <span className="info"><input id="book-title" className="text" type="text" value={this.state.name} onChange={this.onEditChange} name="name"/></span>
+                <span> Email:&nbsp;</span>
+                <span className="info"><input id="book-authors" className="text" type="text" value={this.state.email} onChange={this.onEditChange} name="email"/></span>  
 
-            </div>  
-          </div>
+              </div>  
+            </div>
 
-          <div className="book-info-detail" style={{flexDirection : "column"}}>          
-              <br/>
-              <div>Choose a avatar <input type="file" multiple={false} name="avatarDemo" onChange={this.onChooseAvatarDemo} accept="image/*"/>
-              </div>
-              <div style={this.AvatarDemoStyle()}></div><br />
-              
-          </div>
+            <div className="book-info-detail" style={{flexDirection : "column"}}>          
+                <br/>
+                <div>Choose a avatar <input type="file" multiple={false} name="avatarDemo" onChange={this.onChooseAvatarDemo} accept="image/*"/>
+                </div>
+                <div style={this.AvatarDemoStyle()}></div><br />
+                
+            </div>
 
-          <div style={{display: "flex", marginTop: "5px"}}>
-            <button style={{width: "50%", cursor: "pointer"}} onClick={this.createStudentRequest}><i className="fa fa-save fa-lg"/> Create</button>
-            <button style={{width: "50%", cursor:"pointer"}} onClick={this.onAddStudentComponent}><i className="fa fa-times-circle-o fa-lg"/> Close</button>
-          </div>
-          <hr />
-        </form>
-      </div>
+            <div style={{display: "flex", marginTop: "5px"}}>
+              <button style={{width: "50%", cursor: "pointer"}} onClick={this.createStudentRequest}><i className="fa fa-save fa-lg"/> Create</button>
+              <button style={{width: "50%", cursor:"pointer"}} onClick={this.onAddStudentComponent}><i className="fa fa-times-circle-o fa-lg"/> Close</button>
+            </div>
+            <hr />
+          </form>
+        </div>
+      )}
+      
+      </Spring>
     )
   }
   //get value to state

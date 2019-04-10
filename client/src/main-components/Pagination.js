@@ -102,7 +102,7 @@ export default class Pagination extends Component {
   /** Reload UI */
   RefreshComponent = () => {
     return (
-      <i className="fa fa-refresh" title="next" onClick={this.onRefreshPage} style={this.arrowStyle()}/>
+      <i className="fa fa-refresh" title="refresh" onClick={this.onRefreshPage} style={this.arrowStyle()}/>
     )
   }
 
