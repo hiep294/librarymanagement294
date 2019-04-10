@@ -34,7 +34,7 @@ npm install
 ## Configuration
 ### Set up database
 In config>database.yml, config your database.
-There should use MySQL because this app use MySQL queries. Then run the following commands in main folder: 
+There should use MySQL because this app uses MySQL queries. Then run the following commands in main folder: 
 ```
 rails db:create #to create database
 rails db:migrate #to create tables
