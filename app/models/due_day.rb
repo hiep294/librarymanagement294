@@ -1,2 +1,0 @@
-class DueDay < ApplicationRecord
-end

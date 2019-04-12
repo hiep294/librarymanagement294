@@ -1,5 +1,0 @@
-class AddLocationToBooks < ActiveRecord::Migration[5.2]
-  def change
-    add_column :books, :location, :string
-  end
-end
