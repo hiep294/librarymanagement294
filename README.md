@@ -26,6 +26,12 @@ Open university would like to have library website.
 
 ## Installation
 
+### Download gems
+In main folder, run this command:
+```
+bundle install
+```
+
 ### Download node modules
 In folder 'client', run this command:
 ```
