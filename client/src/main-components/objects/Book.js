@@ -184,7 +184,7 @@ export default class Book extends Component {
    /**for UI */
   tagsCom = () => {
     return (
-      <input id="book-tags" className="text" type="text" value={this.state.tags || ''} onChange={this.onEditChange} name="tags" style={{flexGrow: "1"}} onKeyUp={this.onKeyUp}/>
+      <input id="book-tags" className="text" type="text" value={this.state.tags || ''} onChange={this.onEditChange} name="tags" style={{width: "98%"}} onKeyUp={this.onKeyUp}/>
     )
   } 
    /**for UI */
@@ -214,17 +214,17 @@ export default class Book extends Component {
    //for UI
   publisherCom = () => {
     return (
-      <input name="publisher" type="text" value={this.state.publisher || ''} onChange={this.onEditChange} style={{flexGrow: "1"}} onKeyUp={this.onKeyUp}/>
+      <input name="publisher" type="text" value={this.state.publisher || ''} onChange={this.onEditChange} style={{width: "98%"}} onKeyUp={this.onKeyUp}/>
     )
   }
   callNumberCom = () => {
     return (
-      <input name="call_number" type="text" value={this.state.call_number || ''} onChange={this.onEditChange} style={{flexGrow: "1"}} onKeyUp={this.onKeyUp}/>
+      <input name="call_number" type="text" value={this.state.call_number || ''} onChange={this.onEditChange} style={{width: "98%"}} onKeyUp={this.onKeyUp}/>
     )
   }
   yearOfPublication = () => {
     return (
-      <input name="year_of_publication" type="number" value={this.state.year_of_publication || ''} onChange={this.onEditChange} style={{flexGrow: "1"}} onKeyUp={this.onKeyUp}/>
+      <input name="year_of_publication" type="number" value={this.state.year_of_publication || ''} onChange={this.onEditChange} style={{width: "98%"}} onKeyUp={this.onKeyUp}/>
     )
   }
 
@@ -356,32 +356,32 @@ export default class Book extends Component {
     }
 
     const editTagCom = (
-      <span className="info" style={{display: "flex", flexDirection: check?"column":"row"}}>
+      <span className="info" style={{display: "block"}}>
         <span> Tag(s):&nbsp;</span>
-        {this.state.onEditMode? this.tagsCom() : <span>{this.props.book.tags}</span>}
+        {this.state.onEditMode? this.tagsCom() : <span><br/>{this.props.book.tags}</span>}
       </span>
     )
 
     const editPublisherCom = (
-      <span className="info" style={{display: "flex", flexDirection: check?"column":"row"}}>
+      <span className="info" style={{display: "block"}}>
         <span> Publisher: &nbsp;</span>
-        {this.state.onEditMode? this.publisherCom(): <span>{this.props.book.publisher}</span>}
+        {this.state.onEditMode? this.publisherCom(): <span><br/>{this.props.book.publisher}</span>}
       </span>
     )
 
     const editCallNumberCom = (
-      <span className="info" style={{display: "flex", flexDirection: check? "column": "row"}}>
+      <span className="info" style={{display: "block"}}>
         <span> Call Number: &nbsp;</span>
-        {this.state.onEditMode? this.callNumberCom() : <span>
+        {this.state.onEditMode? this.callNumberCom() : <span><br/>
           {this.props.book.call_number}
         </span>}
       </span>
     )
 
     const editYearOfPublication = (
-      <span className="info" style={{display: "flex", flexDirection: check?"column":"row"}}>
+      <span className="info" style={{display: "block"}}>
         <span>Year Of Publication: &nbsp;</span>
-        {this.state.onEditMode? this.yearOfPublication() : <span>
+        {this.state.onEditMode? this.yearOfPublication() : <span><br/>
           {this.props.book.year_of_publication}
         </span>}
       </span>

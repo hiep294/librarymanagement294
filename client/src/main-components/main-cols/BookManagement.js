@@ -321,29 +321,36 @@ export default class BookManagement extends Component {
               <span><textarea id="book-review" className="text" value={this.state.review || ''} rows="15" onChange={this.onEditChange} name="review" placeholder="review"/>
               </span>
               <p>
-                <span style={{display: "flex", flexDirection: "column"}}>
+                <span>
                   <span>Year Of Publication: &nbsp;</span>
                   <input type="number" 
                     name="year_of_publication"
                     value={this.state.year_of_publication}
-                    onChange={this.onEditChange}/>                  
+                    onChange={this.onEditChange}
+                    style={{width: "98%"}}/>                  
                 </span>
-                <span style={{display: "flex", flexDirection: "column"}}>
+                <span>
                   <span>Publisher: &nbsp;</span>
                   <input type="text"
                     name="publisher"
                     value={this.state.publisher}
-                    onChange={this.onEditChange}/>                  
+                    onChange={this.onEditChange}
+                    style={{width: "98%"}}/>                  
                 </span>
-                <span style={{display: "flex", flexDirection: "column"}}>
+                <span>
                   <span>Call Number: &nbsp;</span>
                   <input type="text"
                     name="call_number"
                     value={this.state.call_number}
-                    onChange={this.onEditChange}/>                  
+                    onChange={this.onEditChange}
+                    style={{width: "98%"}}/>                  
                 </span>
-                <span className="info" style={{display: "flex", flexDirection: "column"}}>
-                  <span> Tag(s):&nbsp;</span><input id="book-tags" className="text" type="text" value={this.state.tags} onChange={this.onEditChange} name="tags"/>
+                <span className="info">
+                  <span> Tag(s):&nbsp;</span>
+                  <input id="book-tags" className="text" type="text" 
+                  value={this.state.tags} 
+                  onChange={this.onEditChange} name="tags"
+                  style={{width: "98%"}}/>
                 </span>
               </p>
               
