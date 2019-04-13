@@ -319,7 +319,9 @@ export default class Book extends Component {
     let shortReview = ""
     if(book.review) shortReview = book.review.split(" ").splice(0, 30).join(" ");
     const inline = { display: "inline" }
-
+    if(this.props.inBookBasket && this.state.shortInfo) {
+      shortReview = ""
+    }
     return (
       <div>
         <span>
@@ -348,12 +350,12 @@ export default class Book extends Component {
    * book detail UI
    */
   BookInfoDetail = () => {
-    const check = this.state.onEditMode
+    // const check = this.state.onEditMode
 
     let moreReview = ""
     if(this.props.book.review) {
       moreReview = this.props.book.review.split(" ").splice(30).join(" ")
-    }
+    }    
 
     const editTagCom = (
       <span className="info" style={{display: "block"}}>
