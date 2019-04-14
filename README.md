@@ -15,9 +15,9 @@ Open university would like to have library website.
 
 ## Technologies
 
-* Back end service uses MySQL as Database Management System, Ruby On Rails as Application Programming Interface
+* Back end service applies MySQL as Database Management System, Ruby On Rails as Application Programming Interface
 
-* Front end service uses ReactJS.
+* Front end service applies ReactJS.
 
 ## System Requirements:
 
