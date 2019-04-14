@@ -27,27 +27,27 @@ Open university would like to have library website.
 ## Installation
 
 ### Download gems
-In main folder, run this command:
+In folder 'back_end_service', run this command:
 ```
 bundle install
 ```
 
 ### Download node modules
-In folder 'client', run this command:
+In folder 'front_end_service', run this command:
 ```
 npm install
 ```
 ## Configuration
 ### Set up database
 In config>database.yml, config your database.
-There should use MySQL because this app uses MySQL queries. Then run the following commands in main folder: 
+There should use MySQL because this app uses RAW sql queries of MySQL. Then run the following commands in main folder: 
 ```
 rails db:create #to create database
 rails db:migrate #to create tables
 ```
 
 ### Create a user, due days
-In main folder, run commands:
+In folder 'back_end_service', run commands:
 ```
 rails c
 User.create(email: 'youremail@gmail.com', password: 'yourpassword')
@@ -57,11 +57,11 @@ DueDay.create(type_of_book: "Text Book", due_days: 62)
 In this table, due day is set in default, each book can set its own due days
 ## Start App
 1. Start your MySQL
-2. Start Rails. In main folder, run this command:
+2. Start Rails. In folder 'backj_end_service', run this command:
 ```
 rails s
 ```
-3. Start client(ReactJS). In folder 'client', run this command:
+3. Start client(ReactJS). In folder 'front_end_service', run this command:
 ```
 npm start
 ```
