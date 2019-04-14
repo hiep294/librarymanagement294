@@ -26,3 +26,4 @@ back_end_service/config/master.key
 back_end_service/public/uploads/*
 back_end_service/log/development.log
 back_end_service/tmp/cache/bootsnap-load-path-cache
+back_end_service/log/development.log
