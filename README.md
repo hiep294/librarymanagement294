@@ -12,6 +12,13 @@ Open university would like to have library website.
 4. In book management, each book should need the due days. due days means the number of days which the student has to return book.
 5. The app supports creating and updating tickets. When the student borrows book, there needs to minus 1 of book quantity. When the student returns book, if the book is still good, plus 1 of this book quantity; if the book is not good, this book quantity will not change.
 6. In policy of library, each student can hold a limit of books, so there needs to define how many books which the students has been borrowing, also has been borrowing but over due date.
+
+## Technologies
+
+* Back end service uses MySQL as Database Management System, Ruby On Rails as Application Programming Interface
+
+* Front end service uses ReactJS.
+
 ## System Requirements:
 
 * Ruby version: 2.5.3
@@ -39,7 +46,7 @@ npm install
 ```
 ## Configuration
 ### Set up database
-In config>database.yml, config your database.
+In back_end_service>config>database.yml, config the database.
 There should use MySQL because this app uses RAW sql queries of MySQL. Then run the following commands in main folder: 
 ```
 rails db:create #to create database
@@ -57,7 +64,7 @@ DueDay.create(type_of_book: "Text Book", due_days: 62)
 In this table, due day is set in default, each book can set its own due days
 ## Start App
 1. Start your MySQL
-2. Start Rails. In folder 'backj_end_service', run this command:
+2. Start Rails. In folder 'back_end_service', run this command:
 ```
 rails s
 ```
