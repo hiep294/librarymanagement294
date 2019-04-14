@@ -7284,3 +7284,59 @@ Processing by SessionsController#destroy as HTML
 Completed 200 OK in 7ms (ActiveRecord: 3.3ms)
 
 
+Started GET "/books?page=1&keyword=&booksPerPage=5" for 127.0.0.1 at 2019-04-14 20:43:36 +0700
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/hiep294/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/hiep294/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as HTML
+  Parameters: {"page"=>"1", "keyword"=>"", "booksPerPage"=>"5"}
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT `books`.* 
+            FROM `books` 
+            ORDER BY `id` DESC 
+            LIMIT 0, 5[0m
+  ↳ app/models/book.rb:52
+  [1m[35mSQL (0.3ms)[0m  [1m[34mSELECT COUNT(*) as `total` FROM (SELECT `books`.* 
+            FROM `books` 
+            ORDER BY `id` DESC 
+            ) as s[0m
+  ↳ app/models/book.rb:66
+  [1m[36mDueDay Load (0.3ms)[0m  [1m[34mSELECT `due_days`.* FROM `due_days`[0m
+  ↳ app/controllers/books_controller.rb:15
+Completed 200 OK in 34ms (Views: 16.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-14 20:43:45 +0700
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'admin@gmail.com' LIMIT 1[0m
+  ↳ app/models/user.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/sessions_controller.rb:23
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'admin@gmail.com' AND `users`.`id` != 2 LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:23
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `auth_token` = 'jPJLwEqaGHnguEU8TeXYcm63', `updated_at` = '2019-04-14 13:43:45' WHERE `users`.`id` = 2[0m
+  ↳ app/controllers/sessions_controller.rb:23
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/sessions_controller.rb:23
+Completed 200 OK in 103ms (Views: 0.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/books?page=2&keyword=&booksPerPage=5" for 127.0.0.1 at 2019-04-14 20:47:32 +0700
+Processing by BooksController#index as HTML
+  Parameters: {"page"=>"2", "keyword"=>"", "booksPerPage"=>"5"}
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT `books`.* 
+            FROM `books` 
+            ORDER BY `id` DESC 
+            LIMIT 5, 5[0m
+  ↳ app/models/book.rb:52
+  [1m[35mSQL (0.3ms)[0m  [1m[34mSELECT COUNT(*) as `total` FROM (SELECT `books`.* 
+            FROM `books` 
+            ORDER BY `id` DESC 
+            ) as s[0m
+  ↳ app/models/book.rb:66
+  [1m[36mDueDay Load (0.2ms)[0m  [1m[34mSELECT `due_days`.* FROM `due_days`[0m
+  ↳ app/controllers/books_controller.rb:15
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 1.0ms)
+
+

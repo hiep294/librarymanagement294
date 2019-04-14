@@ -5,19 +5,24 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/back_end_service/.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+back_end_service/log/*
+back_end_service/tmp/*
+!/back_end_service/log/.keep
+!/back_end_service/tmp/.keep
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+back_end_service/storage/*
+!/back_end_service/storage/.keep
 
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+back_end_service/config/master.key
+
+# Ignore upload file in developed mode
+back_end_service/public/uploads/*
+back_end_service/log/development.log
+back_end_service/tmp/cache/bootsnap-load-path-cache
