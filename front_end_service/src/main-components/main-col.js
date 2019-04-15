@@ -13,7 +13,7 @@ export default class MainCol extends Component {
     if(auth && tasks.onStudents ) mainCol = this.props.children[3];
     if(auth && tasks.onBookBasket ) mainCol = this.props.children[4];
     return (
-      <article id="main-col">
+      <article id="main-col" style={{minHeight: "900px"}}>
         {mainCol}  
       </article> 
     )

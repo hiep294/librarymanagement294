@@ -35,14 +35,23 @@ class TicketsController < ApiController
 
       # # create ticket
       ticket = Ticket.new(:student_id => params[:student_id])
-      if ticket.save        
+      if ticket.save 
+        due_days_of_reference_book = DueDay.find(1)
+        due_days_of_text_book = DueDay.find(2)       
+
         params[:books].each do |book|
           #decrease available_quantity of book, actually, just get ids in params[:books]
           currentBook = Book.find(book[:id])
           decreaseOne = currentBook[:available_quantity] - 1 
           currentBook.update_attributes available_quantity: decreaseOne
           # set due_date, based on due_days of current book 
-          due_date = ticket[:created_at] + currentBook.due_days * 24 * 3600
+          due_days = 0
+          if currentBook[:is_text_book]
+            due_days = due_days_of_text_book[:due_days]
+          else
+            due_days = due_days_of_reference_book[:due_days]
+          end
+          due_date = ticket[:created_at] + due_days * 24 * 3600
           # push book to ticket details
           ticket.ticket_details.create(:book_id => book[:id], :due_date => due_date, :student_id => params[:student_id])
         end

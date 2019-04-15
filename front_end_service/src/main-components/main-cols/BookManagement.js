@@ -41,7 +41,6 @@ export default class BookManagement extends Component {
     year_of_publication: new Date().getFullYear(),
     settingDueDays: false,
     viewingBooks: true,
-    dueDaysOfNewBook: 0,
     dueDays: [],
     total: 0
   }
@@ -84,12 +83,11 @@ export default class BookManagement extends Component {
       }
     }).then( (res) => {
       //should set current page to newPageNumber
-      const dueDaysOfNewBook = this.getDefaultDueDays("Text Book", res.data.data.dueDays)
+      // const dueDaysOfNewBook = this.getDefaultDueDays("Text Book", res.data.data.dueDays)
       this.setState ({
         current_page: newPageNumber,
         books : res.data.data.books,        
         dueDays: res.data.data.dueDays,
-        dueDaysOfNewBook,
         total: res.data.data.total
       })
       // console.log(this.state.total)
@@ -151,7 +149,6 @@ export default class BookManagement extends Component {
     formData.append("book[call_number]", this.state.call_number)
     formData.append("book[publisher]", this.state.publisher)
     formData.append("book[year_of_publication]", this.state.year_of_publication)
-    formData.append("book[due_days]", this.state.dueDaysOfNewBook)
     
     await axios.post(usedUrl,formData, {
       headers: {
@@ -175,8 +172,7 @@ export default class BookManagement extends Component {
           location: '',
           call_number: '',
           publisher: '',
-          year_of_publication: new Date().getFullYear(),
-          dueDaysOfNewBook: this.getDefaultDueDays("Text Book")
+          year_of_publication: new Date().getFullYear()
         })
       } else {
         //show message: data as errors
@@ -289,15 +285,8 @@ export default class BookManagement extends Component {
               <span className="info">
                 <span> Is Text Book:&nbsp;</span>
                 <input id="book-textbook" type="checkbox" onChange={this.onEditChange2} name="is_text_book" checked={this.state.is_text_book}/>
-                <span>=>&nbsp;Due days:&nbsp;</span>
-                <input 
-                name="dueDaysOfNewBook"
-                type="number" 
-                value={this.state.dueDaysOfNewBook}
-                onChange={this.onEditChange}
-                style={{width: "50px"}}
-                min={0}
-                />
+                
+                
               </span>
 
               
@@ -458,8 +447,7 @@ export default class BookManagement extends Component {
    */
   onEditChange2 = (e) => {
     this.setState({
-      is_text_book: !this.state.is_text_book,
-      dueDaysOfNewBook: this.state.is_text_book? this.getDefaultDueDays("Reference Book") : this.getDefaultDueDays("Text Book")
+      is_text_book: !this.state.is_text_book
     })
   }
   

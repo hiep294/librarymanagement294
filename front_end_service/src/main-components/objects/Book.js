@@ -28,8 +28,7 @@ export default class Book extends Component {
     call_number: '',
     publisher: '',
     year_of_publication: '',
-    reloadBigImage: false,
-    due_days: 0
+    reloadBigImage: false
   }
 
   componentDidUpdate = (prevProps) => {
@@ -52,7 +51,7 @@ export default class Book extends Component {
       existed = checkIn? true : false      
     }
 
-    const {id, title, authors, tags, available_quantity, is_text_book, review, location,call_number, publisher, year_of_publication, due_days} = this.props.book
+    const {id, title, authors, tags, available_quantity, is_text_book, review, location,call_number, publisher, year_of_publication} = this.props.book
 
     this.setState({
       onEditMode: false,
@@ -68,8 +67,7 @@ export default class Book extends Component {
       call_number, 
       publisher, 
       year_of_publication,
-      reloadBigImage: !this.state.reloadBigImage,
-      due_days
+      reloadBigImage: !this.state.reloadBigImage
     })
   }
 
@@ -86,10 +84,8 @@ export default class Book extends Component {
    * update the boolean value
    */
   onEditChange2 = (e) => {
-    const t = this.state.is_text_book ? this.props.getDefaultDueDays("Reference Book") : this.props.getDefaultDueDays("Text Book")
     this.setState({
-      is_text_book : !this.state.is_text_book,
-      due_days: t
+      is_text_book : !this.state.is_text_book
     })
   }
 
@@ -295,16 +291,7 @@ export default class Book extends Component {
         <span className="info"><span> Location:&nbsp;</span>{this.locationCom()}</span>
         <span className="info">
           <span> Is Text Book:&nbsp;</span>
-          {this.kindBookCom()}  
-          <span>=>&nbsp;Due days:&nbsp;</span>
-          <input 
-          type="number"
-          name="due_days"
-          value={this.state.due_days}
-          onChange={this.onEditChange}
-          style={{width: "50px"}}
-          onKeyUp={this.onKeyUp}
-          />        
+          {this.kindBookCom()}      
         </span>
         <span className="info"><span> Available Quantity:&nbsp;</span>
           <span id="quantity">{this.quantityCom()}</span>
@@ -338,9 +325,6 @@ export default class Book extends Component {
             {book.location}
           </span>
         </span>
-        {Auth.isUserAuthenticated()? (
-          <span style={{fontSize: "12px",fontStyle: "italic"}} title="Due days of this book">(Due days: {book.due_days})</span>
-          ) : <span></span>}
         <span style={{fontSize : "13px"}}>{shortReview}</span>
       </div>
     )
@@ -359,21 +343,21 @@ export default class Book extends Component {
 
     const editTagCom = (
       <span className="info" style={{display: "block"}}>
-        <span> Tag(s):&nbsp;</span>
+        <span>- Tag(s):&nbsp;</span>
         {this.state.onEditMode? this.tagsCom() : <span><br/>{this.props.book.tags}</span>}
       </span>
     )
 
     const editPublisherCom = (
       <span className="info" style={{display: "block"}}>
-        <span> Publisher: &nbsp;</span>
+        <span>- Publisher: &nbsp;</span>
         {this.state.onEditMode? this.publisherCom(): <span><br/>{this.props.book.publisher}</span>}
       </span>
     )
 
     const editCallNumberCom = (
       <span className="info" style={{display: "block"}}>
-        <span> Call Number: &nbsp;</span>
+        <span>- Call Number: &nbsp;</span>
         {this.state.onEditMode? this.callNumberCom() : <span><br/>
           {this.props.book.call_number}
         </span>}
@@ -382,7 +366,7 @@ export default class Book extends Component {
 
     const editYearOfPublication = (
       <span className="info" style={{display: "block"}}>
-        <span>Year Of Publication: &nbsp;</span>
+        <span>- Year Of Publication: &nbsp;</span>
         {this.state.onEditMode? this.yearOfPublication() : <span><br/>
           {this.props.book.year_of_publication}
         </span>}
@@ -456,7 +440,7 @@ export default class Book extends Component {
             </span>   
           </div>
           {MoreInfo}
-          <button className="button_2" onClick={this.onShowMore} type="button" title="Show more or less">{btnText}</button>
+          <button className="button_2" onClick={this.onShowMore} type="button" title="Show more or less" style={{ width: "120px" }}>{btnText}</button>
         </div>
         </div>
       )}
