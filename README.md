@@ -1,4 +1,4 @@
-## DEMO
+## Demo
 https://youtu.be/zAin4nqD7_4
 
 ## Scenario
