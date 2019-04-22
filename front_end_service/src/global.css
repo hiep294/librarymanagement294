@@ -57,6 +57,10 @@ i{
   outline: none;
 }
 
+.button_3{
+  width: 120px
+}
+
 .dark{
   padding: 15px;
   background: #354248;
@@ -240,6 +244,7 @@ form#change-password .forStyle{
     text-align: left;
     margin-top: 7px;
   }
+  
 }
 
 html {

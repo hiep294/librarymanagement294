@@ -440,7 +440,9 @@ export default class Book extends Component {
             </span>   
           </div>
           {MoreInfo}
-          <button className="button_2" onClick={this.onShowMore} type="button" title="Show more or less" style={{ width: "120px" }}>{btnText}</button>
+          <button className="button_2 button_3" onClick={this.onShowMore} type="button" title="Show more or less">
+            {btnText}
+          </button>
         </div>
         </div>
       )}
